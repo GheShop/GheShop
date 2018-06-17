@@ -1,0 +1,108 @@
+//==================== CUSTOMIZE======================
+@brand-danger: #655952;
+
+
+//===================================================
+
+*{
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: url(../images/photo_bg.jpg) no-repeat center center fixed;
+  background-size: cover;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  color: #666;
+  .row{
+    margin:0;
+  }
+  #loginTop{
+    margin: 0;
+    font-weight: 300;
+    position: relative;
+    top: -225px;
+    background: linear-gradient(to bottom,  rgba(0,0,0,0.6) 0%,rgba(0,0,0,0) 100%);
+    #title{
+      max-width: 300px;
+      margin: 0 auto;
+      padding-top: 180px;
+      text-align: center;
+      color: #ffffff;
+      text-shadow: 0 0 10px rgba(0,0,0,0.8);
+      font-size: 3.2em;
+      font-family: 'Roboto Slab', serif;
+      opacity: 0;
+    }
+    span#logo>span{
+      //font-weight: 400;
+    }
+  }
+  #loginCenter{
+    position: relative;
+    top: 350px;
+    opacity: 0;
+    text-align: center;
+    #loginMain{
+      max-width: 350px;
+      margin: 0 auto;
+      #frmTitle{
+        text-align: center;
+        background-color: #655952;
+        text-transform: uppercase;
+        color: #ffffff;
+        height: 62px;
+        box-sizing: border-box;
+        border-radius: 5px 5px 0 0;
+        line-height: 70px;
+        font-size: 1.5em;
+        letter-spacing: 1px;
+      }
+      .form{
+        background-color: #ffffff;
+        border-radius: 0 0 5px 5px;
+        .row{
+          padding-top: 20px;
+          width: 100%;
+          label{
+            text-align: center;
+            display: block;
+            color: #888;
+            text-transform: uppercase;
+            font-size: 0.8em;
+            letter-spacing: 1px;
+            cursor: pointer;
+          }
+          input{
+            padding: 8px;
+            outline: none;
+            border-radius: 2px;
+            border: 1px solid #ccc;
+            font-size: 0.9em;
+            color: #888888;
+            cursor : text;
+            width: 60%;
+          }
+          input:focus{
+            border: 1px solid #17050D ;
+          }
+        }
+        .row:last-child{
+          padding-top: 10px;
+          padding-bottom: 20px;
+          a{
+            color: #666 !important;
+            font-size: 0.8em;
+          }
+          a:hover{
+            color: #aeaeae !important;
+            text-decoration: none;
+          }
+        }
+        .error{
+          color: red;
+        }
+      }
+    }
+  }
+}
