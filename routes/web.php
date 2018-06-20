@@ -11,6 +11,9 @@
 |
 */
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -24,5 +27,9 @@ Route::group(['prefix'=>'admin'],function(){
     Route::group(['middleware'=>'adminLogin'],function(){
         Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
     });
-
 });
+
+Route::get('login','Admin\LoginController@getLoginTest');
+Route::post('login','Admin\LoginController@postLoginTest');
+
+Route::get('','Admin\LoginController@postLoginTest');
