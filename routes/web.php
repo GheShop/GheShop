@@ -29,7 +29,8 @@ Route::group(['prefix'=>'admin'],function(){
     });
 });
 
-Route::get('login','Admin\LoginController@getLoginTest');
+Route::get('login','Admin\LoginController@getLoginTest')->name('login');
 Route::post('login','Admin\LoginController@postLoginTest');
 
-Route::get('','Admin\LoginController@postLoginTest');
+Route::get('dashboard',"HomeController@getIndex");
+Route::get('logout','HomeController@getLogout');

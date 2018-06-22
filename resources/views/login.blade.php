@@ -22,15 +22,15 @@
             <form action="{{url('login')}}" method="POST">
                 @csrf
                 <div class="row">
-                    <label for="email">email</label>
-                    <input required type="text" id="email" name="email" value="{{old('email')}}"/>
-                    @if($errors->has('email'))
-                        <p style="color:red;font-size: 0.8em">{{$errors->first('email')}}</p>
+                    <label for="username">username</label>
+                    <input type="text" id="username" name="username" value="{{old('username')}}"/>
+                    @if($errors->has('username'))
+                        <p style="color:red;font-size: 0.8em">{{$errors->first('username')}}</p>
                     @endif
                 </div>
                 <div class="row">
                     <label for="password">password</label>
-                    <input required type="password" id="password" name="password"/>
+                    <input  type="password" id="password" name="password"/>
                     @if($errors->has('password'))
                         <p style="color:red;font-size: 0.8em">{{$errors->first('password')}}</p>
                     @endif
@@ -38,10 +38,17 @@
                 <div class="row">
                     <button type="submit" class="btn btn-danger">SIGN IN</button>
                 </div>
+                    <input type="checkbox" name="rememberLogin"/> Remember
                 <div class="row">
                     <a href="#" class="btn btn-link">Forgot your password?</a>
                 </div>
             </form>
+            @if($errors->has('errorLogin'))
+                <div class="alert alert-danger">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{$errors->first('errorLogin')}}
+                </div>
+            @endif
         </div>
     </div>
 </div>
