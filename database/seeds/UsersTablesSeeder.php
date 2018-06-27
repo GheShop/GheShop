@@ -15,9 +15,10 @@ class UsersTablesSeeder extends Seeder
         //
         DB::table('users')->truncate();
         App\User::create([
-            'name'=>'Badman',
+            'name'=>'badman',
             'email'=>'badman@gmail.com',
-            'password'=> bcrypt('lfoangia@596')
+            'password'=> bcrypt('lfoangia@596'),
+            'level'=>1
         ]);
     }
 }

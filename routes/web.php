@@ -11,26 +11,22 @@
 |
 */
 
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::group(['prefix'=>'admin'],function(){
-    Route::get('login',function (){
-        return view('admin/login');
-    })->name('loginUI');
-    Route::post('login',"Admin\LoginController@index")->name('loginProcess');
+Route::get('admin/login','Admin\LoginController@getLogin')->name('admin.get.login');
+Route::post('admin/login','Admin\LoginController@postLogin')->name('admin.post.login');
 
-    Route::group(['middleware'=>'adminLogin'],function(){
-        Route::get('dashboard','Admin\DashboardController@index')->name('dashboard');
+Route::middleware('checkAuth')->group(function (){
+    Route::prefix("admin")->group(function (){
+        Route::get('dashboard',function (){
+            return view('admin.dashboard');
+        })->name('admin.dashboard');
     });
 });
 
-Route::get('login','Admin\LoginController@getLoginTest')->name('login');
-Route::post('login','Admin\LoginController@postLoginTest');
 
-Route::get('dashboard',"HomeController@getIndex");
-Route::get('logout','HomeController@getLogout');
+Route::get('admin/logout','Admin\LoginController@logout')->name('admin.logout');
