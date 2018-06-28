@@ -18,6 +18,9 @@ Route::get('/', function () {
 });
 
 Route::get('admin/login','Admin\LoginController@getLogin')->name('admin.get.login');
+Route::get('admin',function(){
+    return redirect()->route('admin.get.login');
+});
 Route::post('admin/login','Admin\LoginController@postLogin')->name('admin.post.login');
 
 Route::middleware('checkAuth')->group(function (){
