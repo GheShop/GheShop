@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+/*===================== Structure Common ================*/
+.wrapper{
+    width: 100%;
+    height: auto;
+    background-color: #EBF0F5;
+    overflow: auto;
+}
+.glyphicon{
+    top: 0 !important;
+    bottom: 0 !important;
+
+}
+    /*================= Title Bar =============*/
+    .wrapper .Title-Bar{
+        overflow: auto;
+    }
+    .wrapper .dashboard-title{
+        background-color: #007EA2;
+        height: 50px;
+        box-sizing: border-box;
+        color: #ffffff;
+        font-size: 1.5em;
+        text-align: center;
+        line-height: 50px;
+    }
+    .wrapper .dashboard-user-info{
+        background-color: #008FB9;
+        color: #ffffff;
+        padding-right: 0 !important;
+    }
+    .dashboard-user-info #iconNav{
+        float: left;
+        display: inline-block;
+        height: 50px;
+        text-align: center;
+        box-sizing: border-box;
+        font-size: 1.3em;
+        padding: 15px 0;
+        cursor: pointer;
+    }
+    .dashboard-user-info .adminInfo{
+        float: right;
+        height: 50px;
+    }
+    .dashboard-user-info .adminInfo .main-item-info{
+        list-style: none;
+    }
+    .dashboard-user-info .adminInfo .main-item-info li{
+        float: left;
+        height: 50px;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+        line-height: 50px;
+        cursor: pointer;
+    }
+    .dashboard-user-info .adminInfo .main-item-info li:hover{
+        background-color: #007EA2;
+    }
+    .dashboard-user-info .adminInfo .main-item-info li.user-info img{
+        width: 30px;
+        height: 30px;
+        border-radius: 100%;
+        margin-right: 5px;
+    }
+    .dashboard-user-info .adminInfo ul li.icon-user-setting-main{
+        font-size: 1.3em;
+        padding-top: 3px;
+
+    }
+
+    /*================= Navbar =============*/
+    .dashboard-nav{
+        min-width: 50px;
+        background-color: #1E2E32;
+        min-height: 1000px;
+        padding: 20px 15px;
+    }
+    /*================= Content-Main =============*/
+    .content-main{
+        min-height: 1000px;
+    }

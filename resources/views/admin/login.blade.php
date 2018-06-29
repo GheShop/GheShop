@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/png" href="{{URL::asset('images/lockTitle.png')}}" />
+    <link rel="icon" type="image/png" href="{{URL::asset('images/admin/lockTitle.png')}}" />
     <title>Login Admin</title>
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.css')}}" type="text/css">
     <link rel="stylesheet" href="{{URL::asset('css/backend/login.css')}}" type="text/css">
@@ -55,5 +55,5 @@
 </body>
 <script type="text/javascript" src="{{URL::asset('js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js')}}"></script>
-<script type="text/javascript" src="{{URL::asset('js/login.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('js/admin/login.js')}}"></script>
 </html>
