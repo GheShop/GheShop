@@ -60,7 +60,7 @@
             {{--menu items--}}
             <div class="nav-menu1-items">
                 <ul class="nav-menu" id="nav-menu">
-                    <li><a href="?controller=index" class="active"><span class="glyphicon glyphicon-apple"></span><span>DashBoard</span></a></li>
+                    <li><a href="#" class="active"><span class="glyphicon glyphicon-apple"></span><span>DashBoard</span></a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-bed"></span><span>Users</span></a>
                         <ul>
                             <li><a href="#">Add</a></li>
@@ -68,7 +68,7 @@
                             <li><a href="#">Delete</a></li>
                         </ul>
                     </li>
-                    <li><a href="?controller=user"><span class="glyphicon glyphicon-bitcoin"></span><span>Categories</span></a>
+                    <li><a href="#"><span class="glyphicon glyphicon-bitcoin"></span><span>Categories</span></a>
                         <ul>
                             <li><a href="#">Add</a></li>
                             <li><a href="#">Edit</a></li>

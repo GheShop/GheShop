@@ -26,7 +26,7 @@ Route::post('/admin/login', 'Admin\LoginController@postLogin')->name('admin.post
 
 Route::middleware('checkAuth')->group(function () {
     Route::prefix("admin")->group(function () {
-        Route::get('dashboard', function () {
+        Route::get('admin/dashboard', function () {
             return view('admin.dashboard');
         })->name('admin.dashboard');
     });
