@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="{{URL::asset('css/backend/dashboard.css')}}" type="text/css">
 </head>
 <body>
-{{--<a href="{{route('admin.logout')}}">Logout</a>--}}
 <div class="wrapper">
     {{--Title Bar--}}
     <div class="Title-Bar">
@@ -31,9 +30,16 @@
             </div>
         </div>
     </div>
+    <div class="edit-user-info">
+        <ul>
+            <li><a href=""><span class="glyphicon glyphicon-user"></span>User Info</a></li>
+            <li><a href=""><span class="glyphicon glyphicon-pencil"></span>Change Password</a></li>
+            <li><a href="{{route('admin.logout')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+        </ul>
+    </div>
     <div class="containerMain">
         {{--Navbar--}}
-        <div class="hidden-xs col-sm-2 dashboard-nav" id="dashboard-nav">
+        <div class="col-xs-6 col-sm-2 dashboard-nav" id="dashboard-nav">
             {{--user panel--}}
             <div class="nav-user-panel">
                 <div class="pull-left-image">
@@ -54,7 +60,7 @@
             {{--menu items--}}
             <div class="nav-menu1-items">
                 <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#" class="active"><span class="glyphicon glyphicon-apple"></span><span>DashBoard</span></a></li>
+                    <li><a href="?controller=index" class="active"><span class="glyphicon glyphicon-apple"></span><span>DashBoard</span></a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-bed"></span><span>Users</span></a>
                         <ul>
                             <li><a href="#">Add</a></li>
@@ -62,7 +68,7 @@
                             <li><a href="#">Delete</a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-bitcoin"></span><span>Categories</span></a>
+                    <li><a href="?controller=user"><span class="glyphicon glyphicon-bitcoin"></span><span>Categories</span></a>
                         <ul>
                             <li><a href="#">Add</a></li>
                             <li><a href="#">Edit</a></li>
@@ -87,7 +93,7 @@
             </div>
         </div>
         {{--Content-Main--}}
-        <div class="col-xs-12 col-sm-10 content-main" id="dashboard-content"></div>
+        <div class="col-xs-6 col-sm-10 content-main" id="dashboard-content"></div>
     </div>
 </div>
 </body>
