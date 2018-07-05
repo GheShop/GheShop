@@ -12,4 +12,38 @@ $(document).ready(function () {
             $("#username").focus();
         });
     });
+//  handel modal reset password
+    $("#reset-password-link").on("click",function () {
+        $("#title,#loginMain").css("filter","blur(2px)");
+    });
+    $(".close").on("click",function () {
+        $("#title,#loginMain").css("filter","");
+    });
+
+    $("#sendResetPassword").on("click",function (e) {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN':  $(".modal-body form input[type='hidden']").val()
+            }
+        });
+        $.ajax({
+            type: "POST",
+            url: "/admin/password_reset",
+            data:{"email_reset":$("#email_reset").val()},
+        }).done(function (response) {
+            var result = jQuery.parseJSON(response);
+            if(result.statusCode == 0){
+                $(".error").text(result.message);
+            }else{
+                $(".modal_info_1").addClass("hidden");
+                $(".modal_info_2").removeClass("hidden");
+            }
+        });
+    });
+    $("#TryResetPassword").on("click",function () {
+        $(".modal_info_1").removeClass("hidden");
+        $(".modal_info_2").addClass("hidden");
+        $(".error").text("");
+    });
 });

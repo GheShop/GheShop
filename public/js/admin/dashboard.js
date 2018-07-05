@@ -30,8 +30,24 @@ $(document).ready(function () {
                 CheckButtonIconNavActive = true;
             }
         }else{
-
+            if(CheckButtonIconNavActive === true){
+                $("#dashboard-nav").animate({left: "-50%",width: "0%"});
+                $("#dashboard-content").animate({width: "100%"},function () {
+                    $("#dashboard-nav").addClass("hidden");
+                    $("#dashboard-nav").css({"left": "0%"});
+                });
+                CheckButtonIconNavActive = false;
+            }else{
+                $("#dashboard-nav").css({"left": "-50%"});
+                $("#dashboard-nav").removeClass("hidden");
+                $("#dashboard-content").animate({width: "50%"});
+                $("#dashboard-nav").animate({left:"0%",width: "50%"});
+                CheckButtonIconNavActive = true;
+            }
         }
+    });
+    $(".icon-user-setting-main").on("click",function () {
+        $(".edit-user-info").toggle();
     });
 });
 

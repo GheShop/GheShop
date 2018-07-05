@@ -13,12 +13,7 @@
     }
 }
 @media all and (max-width: 1000px){
-    .col-xs-12{
-        width: 100%;
-    }
-    .hidden-xs {
-        display: none !important;
-    }
+
 }
 /*===================== Structure Common ================*/
 .wrapper{
@@ -26,6 +21,7 @@
     height: auto;
     background-color: #EBF0F5;
     overflow: auto;
+    position: relative;
 }
 .glyphicon{
     top: 0 !important;
@@ -73,9 +69,11 @@
         padding-left: 15px !important;
         padding-right: 15px !important;
         line-height: 50px;
+    }
+    .dashboard-user-info .adminInfo .main-item-info li:last-child{
         cursor: pointer;
     }
-    .dashboard-user-info .adminInfo .main-item-info li:hover{
+    .dashboard-user-info .adminInfo .main-item-info li:last-child:hover{
         background-color: #007EA2;
     }
     .dashboard-user-info .adminInfo .main-item-info li.user-info img{
@@ -89,7 +87,33 @@
         padding-top: 3px;
 
     }
-
+    /*Admin Edit User-Info*/
+    .edit-user-info{
+        display: none;
+        position: absolute;
+        right: 0;
+        top: 50px;
+        z-index: 1000;
+    }
+    .edit-user-info ul{
+        list-style: none;
+        display: inline-block;
+    }
+    .edit-user-info ul li{
+        display: block;
+        background-color: #007EA2;
+    }
+    .edit-user-info ul li a{
+        padding: 5px 10px;
+        display: block;
+        color: #ffffff;
+    }
+    .edit-user-info ul li a:hover{
+        background-color: #0c5460;
+    }
+    .edit-user-info ul li a span{
+        margin-right: 5px;
+    }
     /*================= Navbar =============*/
     #dashboard-nav{
         background-color: #1E2E32;

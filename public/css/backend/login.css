@@ -1,100 +1,142 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
+
 body {
-  background: url(../../images/admin/photo_bg.jpg) no-repeat center center fixed;
-  background-size: cover;
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
-  color: #666;
-  width: 100%;
+    background: url(../../images/admin/photo_bg.jpg) no-repeat center center fixed;
+    background-size: cover;
+    font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    color: #666;
+    width: 100%;
 }
-.row{
-  margin:0;
+
+.row {
+    margin: 0;
 }
+
 body #loginTop {
-  margin: 0;
-  font-weight: 300;
-  position: relative;
-  top: -225px;
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0)));
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+    margin: 0;
+    font-weight: 300;
+    position: relative;
+    top: -225px;
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.6)), to(rgba(0, 0, 0, 0)));
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
 }
+
 body #loginTop #title {
-  max-width: 300px;
-  margin: 0 auto;
-  padding-top: 180px;
-  text-align: center;
-  color: #ffffff;
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
-  font-size: 3.2em;
-  font-family: 'Roboto Slab', serif;
-  opacity: 0;
+    max-width: 300px;
+    margin: 0 auto;
+    padding-top: 180px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+    font-size: 3.2em;
+    font-family: 'Roboto Slab', serif;
+    opacity: 0;
 }
+
 body #loginCenter {
-  position: relative;
-  top: 350px;
-  opacity: 0;
-  text-align: center;
+    position: relative;
+    top: 350px;
+    opacity: 0;
+    text-align: center;
 }
+
 body #loginCenter #loginMain {
-  max-width: 350px;
-  margin: 0 auto;
+    max-width: 350px;
+    margin: 0 auto;
 }
+
 body #loginCenter #loginMain #frmTitle {
-  text-align: center;
-  background-color: #655952;
-  text-transform: uppercase;
-  color: #ffffff;
-  height: 62px;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border-radius: 5px 5px 0 0;
-  line-height: 70px;
-  font-size: 1.5em;
-  letter-spacing: 1px;
+    text-align: center;
+    background-color: #655952;
+    text-transform: uppercase;
+    color: #ffffff;
+    height: 62px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 5px 5px 0 0;
+    line-height: 70px;
+    font-size: 1.5em;
+    letter-spacing: 1px;
 }
+
 body #loginCenter #loginMain .form {
-  background-color: #ffffff;
-  border-radius: 0 0 5px 5px;
+    background-color: #ffffff;
+    border-radius: 0 0 5px 5px;
 }
+
 body #loginCenter #loginMain .form .row {
-  padding-top: 20px;
-  width: 100%;
-  margin: 0;
+    padding-top: 20px;
+    width: 100%;
+    margin: 0;
 }
+
 body #loginCenter #loginMain .form .row label {
-  text-align: center;
-  display: block;
-  color: #888;
-  text-transform: uppercase;
-  font-size: 0.8em;
-  letter-spacing: 1px;
-  cursor: pointer;
+    text-align: center;
+    display: block;
+    color: #888;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    cursor: pointer;
 }
+
 body #loginCenter #loginMain .form .row input {
-  padding: 8px;
-  outline: none;
-  border-radius: 2px;
-  border: 1px solid #ccc;
-  font-size: 0.9em;
-  color: #888888;
-  cursor: text;
-  width: 60%;
+    padding: 8px;
+    outline: none;
+    border-radius: 2px;
+    border: 1px solid #ccc;
+    font-size: 0.9em;
+    color: #888888;
+    cursor: text;
+    width: 60%;
 }
+
 body #loginCenter #loginMain .form .row input:focus {
-  border: 1px solid #17050D ;
+    border: 1px solid #17050D;
 }
+
 body #loginCenter #loginMain .form .row:last-child {
-  padding-top: 10px;
-  padding-bottom: 20px;
+    padding-top: 10px;
+    padding-bottom: 0;
 }
+
 body #loginCenter #loginMain .form .row:last-child a {
-  color: #666 !important;
-  font-size: 0.8em;
+    color: #666;
+    font-size: 0.8em;
+    outline: none;
 }
+
 body #loginCenter #loginMain .form .row:last-child a:hover {
-  color: #aeaeae !important;
-  text-decoration: none;
+    color: #aeaeae;
+}
+
+/*========= MODAL============*/
+
+@media (min-width: 768px){
+    .modal-dialog {
+        width: 350px;
+        margin: 30px auto;
+    }
+}
+.modal {
+    text-align: center;
+    padding: 0 !important;
+}
+
+.modal:before {
+    content: '';
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+    margin-right: -4px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
 }

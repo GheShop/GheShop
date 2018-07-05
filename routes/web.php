@@ -11,25 +11,26 @@
 |
 */
 
-use Illuminate\Support\Facades\Route;
+Route::get('/admin/login', 'Admin\LoginController@getLogin')->name('admin.get.login');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/admin/password_reset', function () {
+    return view('admin.forgot_password');
+})->name('/admin.get.resetPassword');
 
-Route::get('admin/login','Admin\LoginController@getLogin')->name('admin.get.login');
-Route::get('admin',function(){
+Route::post('/admin/password_reset', 'Admin\LoginController@postResetPassword');
+
+Route::get('/admin', function () {
     return redirect()->route('admin.get.login');
 });
-Route::post('admin/login','Admin\LoginController@postLogin')->name('admin.post.login');
+Route::post('/admin/login', 'Admin\LoginController@postLogin')->name('admin.post.login');
 
-Route::middleware('checkAuth')->group(function (){
-    Route::prefix("admin")->group(function (){
-        Route::get('dashboard',function (){
+Route::middleware('checkAuth')->group(function () {
+    Route::prefix("admin")->group(function () {
+        Route::get('dashboard', function () {
             return view('admin.dashboard');
         })->name('admin.dashboard');
     });
 });
 
 
-Route::get('admin/logout','Admin\LoginController@logout')->name('admin.logout');
+Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
