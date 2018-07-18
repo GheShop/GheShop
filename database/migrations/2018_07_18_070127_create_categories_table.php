@@ -20,6 +20,8 @@ class CreateCategoriesTable extends Migration
                 $table->integer('parentID')->default(0);
                 $table->string('class_bst_icon')->default('');
                 $table->integer('level')->default(1);
+                $table->boolean("hasSub")->default(false);
+                $table->string("path")->default("");
                 $table->timestamps();
             });
         }

@@ -9,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.css')}}" type="text/css">
     <link rel="stylesheet" href="{{URL::asset('css/backend/dashboard.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/fontAsomeone.css')}}" type="text/css">
 </head>
 <body>
 <div class="wrapper">
@@ -58,39 +59,7 @@
             </div>
             <div id="nav-main-title">Main Navigation</div>
             {{--menu items--}}
-            <div class="nav-menu1-items">
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="#" class="active"><span class="glyphicon glyphicon-apple"></span><span>DashBoard</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-bed"></span><span>Users</span></a>
-                        <ul>
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-bitcoin"></span><span>Categories</span></a>
-                        <ul>
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-camera"></span><span>Products</span></a>
-                        <ul>
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-calendar"></span><span>About</span></a>
-                        <ul>
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            <div class="nav-menu1-items"></div>
         </div>
         {{--Content-Main--}}
         <div class="col-xs-6 col-sm-10 content-main" id="dashboard-content"></div>
