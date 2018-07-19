@@ -2,7 +2,7 @@ $(document).ready(function () {
     //get categories
     $.ajax({
         type: "GET",
-        url: "/admin/categories",
+        url: "/admin/menu/show",
     }).done(function (response) {
         $(".nav-menu1-items").append(response);
         $(".nav-menu1-items ul").first().addClass("nav-menu").attr('id','nav-menu');
@@ -10,12 +10,6 @@ $(document).ready(function () {
             if($(this).text() == ''){
                 $(this).remove();
             }
-        });
-        var NavBarID = $("#nav-menu");
-        NavBarID.find("a").on("click",function(){
-            NavBarID.find("a").removeClass("active");
-            $(this).addClass("active");
-            $(this).parents("li").find(">a").addClass("active");
         });
         // handel events nav ui li
         var CheckButtonIconNavActive = true;
@@ -66,19 +60,35 @@ $(document).ready(function () {
         $(".icon-user-setting-main").on("click",function () {
             $(".edit-user-info").toggle();
         });
+        //    set menu active
+        var menuActiveInputHidden = $("#tabActiveHidden").text();
+        var arraysTab = menuActiveInputHidden.split("_");
+        $.each($("#nav-menu").find("a"),function (index,element) {
+            var classCheck = $(element).attr("class");
+            arraysTab.forEach(function (value) {
+               if(value !== '' && value !== null && classCheck.search(value) !== -1){
+                   $("#nav-menu").find("a").removeClass("active");
+                   $(element).addClass("active");
+                   $(element).parents("li").find(">a").addClass("active");
+               }
+            });
+        });
     });
 
+    $.ajax({
+        type: "GET",
+        url : "/admin/user_info"
+    }).done(function (response) {
+        if(typeof response === 'object'){
+            $(".user-info-name , .pull-left-info > span:first").text(response.name);
+        }
+    });
 
 });
 
 //plugin nav
 $.fn.NavBarPlugin = function () {
-    var NavBarID = this;
-    NavBarID.find("a").on("click",function(){
-        NavBarID.find("a").removeClass("active");
-        $(this).addClass("active");
-        $(this).parents("li").find(">a").addClass("active");
-    });
+  var NavBarID = this;
   var ul_childs = NavBarID.find(">li").children("ul");
   if(ul_childs.length > 0){
       var elementInsert = "<span class='glyphicon glyphicon-chevron-left arrowNav' checkActive='0'></span>";

@@ -22,7 +22,7 @@
                 <ul class="main-item-info">
                     <li class="user-info">
                         <img src="{{URL::asset('images/admin/userIcon.jpg')}}" alt="user Icon" id="user-icon">
-                        <span class="user-info-name">Le Ba Minh</span>
+                        <span class="user-info-name"></span>
                     </li>
                     <li class="icon-user-setting-main">
                         <span class="glyphicon glyphicon-cog id" id="icon-user-setting"></span>
@@ -47,7 +47,7 @@
                     <img src="{{URL::asset('images/admin/userIcon.jpg')}}" alt="">
                 </div>
                 <div class="pull-left-info">
-                    <span>Le Ba Minh</span><br/>
+                    <span></span><br/>
                     <span class="glyphicon glyphicon-ok-circle"></span>
                     <span>Online</span>
                 </div>
@@ -62,7 +62,9 @@
             <div class="nav-menu1-items"></div>
         </div>
         {{--Content-Main--}}
-        <div class="col-xs-6 col-sm-10 content-main" id="dashboard-content"></div>
+        <div class="col-xs-6 col-sm-10 content-main" id="dashboard-content">
+            @yield("pageContent")
+        </div>
     </div>
 </div>
 </body>

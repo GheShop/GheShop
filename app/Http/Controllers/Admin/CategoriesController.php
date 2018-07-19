@@ -19,7 +19,7 @@ class CategoriesController extends Controller
         return $navString;
     }
 
-    function createCategories($categories, $parent_id = 0, &$string)
+    public function createCategories($categories, $parent_id = 0, &$string)
     {
         // BƯỚC 2.1: LẤY DANH SÁCH CATE CON
         $cate_child = array();
@@ -42,16 +42,17 @@ class CategoriesController extends Controller
                 if($item->hasSub){
                     $href = "javascript:void(0)";
                 }else{
-                    $href = url("admin\\".strtolower($item->path));
+                    $href = url("admin\menu\\".strtolower($item->path));
                 }
+                $path = str_replace("/","_",strtolower($item->path));
                 // Hiển thị tiêu đề chuyên mục
                 if($item->level === 1){
-                    $string .= '<li><a href="'.$href.'"><span class="'.$item->class_bst_icon.'"></span><span>'.$item->name;
+                    $string .= '<li><a href="'.$href.'" class = "'.$path.'"><span class="'.$item->class_bst_icon.'"></span><span>'.$item->name;
                     // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
                     $this->createCategories($categories, $item->id,$string);
                     $string .= '</span></a></li>';
                 }else if($item->level === 2 ){
-                    $string .= '<li><a href="'.$href.'">'.$item->name;
+                    $string .= '<li><a href="'.$href.'" class = "'.$path.'">'.$item->name;
 //                    // Tiếp tục đệ quy để tìm chuyên mục con của chuyên mục đang lặp
                     $this->createCategories($categories, $item->id,$string);
                     $string .= '</a></li>';
@@ -60,4 +61,13 @@ class CategoriesController extends Controller
             $string .= '</ul>';
         }
     }
+
+    public function  showPage($menu1="members",$menu2= '')
+    {
+        if($menu2 !== ''){
+            return view("admin.".$menu1.".".$menu2,['menu1'=>$menu1,'menu2'=>$menu2]);
+        }
+        return view("admin.".$menu1,['menu1'=>$menu1,'menu2'=>$menu2]);
+    }
+
 }

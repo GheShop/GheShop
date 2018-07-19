@@ -40,7 +40,7 @@ class LoginController extends Controller
         $level = 1;
         $remember = $request->input('rememberLogin');
 
-        if (Auth::attempt(['name' => $username, 'password' => $password, 'level' => $level], $remember)) {
+        if (Auth::attempt(['email' => $username, 'password' => $password, 'level' => $level], $remember)) {
             return redirect()->route('admin.dashboard');
         }
         $errors = new MessageBag(["errorLogin" => "Email hoặc mật khẩu không đúng!"]);
@@ -76,4 +76,5 @@ class LoginController extends Controller
             ]);
         }
     }
+
 }
