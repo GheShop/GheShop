@@ -25,10 +25,21 @@ Route::get('/admin', function () {
 Route::post('/admin/login', 'Admin\LoginController@postLogin')->name('admin.post.login');
 
 Route::middleware('checkAuth')->group(function () {
+
     Route::prefix("admin")->group(function () {
-        Route::get('dashboard', function () {
-            return view('admin.dashboard');
-        })->name('admin.dashboard');
+
+        Route::prefix("menu")->group(function(){
+
+            Route::get('show','Admin\CategoriesController@getCategories')->name('admin.menu');
+
+            Route::get('/{menu1?}/{menu2?}','Admin\CategoriesController@showPage')->name('admin.dashboard');
+        });
+
+        Route::get('user_info','Admin\UserController@getCurrentUser')->name('admin.currentUser');
+
+        Route::resources([
+            'user'=>'Admin\UserController'
+        ]);
     });
 });
 

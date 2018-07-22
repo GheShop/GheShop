@@ -9,6 +9,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.css')}}" type="text/css">
     <link rel="stylesheet" href="{{URL::asset('css/backend/dashboard.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/fontAsomeone.css')}}" type="text/css">
 </head>
 <body>
 <div class="wrapper">
@@ -21,7 +22,7 @@
                 <ul class="main-item-info">
                     <li class="user-info">
                         <img src="{{URL::asset('images/admin/userIcon.jpg')}}" alt="user Icon" id="user-icon">
-                        <span class="user-info-name">Le Ba Minh</span>
+                        <span class="user-info-name"></span>
                     </li>
                     <li class="icon-user-setting-main">
                         <span class="glyphicon glyphicon-cog id" id="icon-user-setting"></span>
@@ -46,7 +47,7 @@
                     <img src="{{URL::asset('images/admin/userIcon.jpg')}}" alt="">
                 </div>
                 <div class="pull-left-info">
-                    <span>Le Ba Minh</span><br/>
+                    <span></span><br/>
                     <span class="glyphicon glyphicon-ok-circle"></span>
                     <span>Online</span>
                 </div>
@@ -58,42 +59,12 @@
             </div>
             <div id="nav-main-title">Main Navigation</div>
             {{--menu items--}}
-            <div class="nav-menu1-items">
-                <ul class="nav-menu" id="nav-menu">
-                    <li><a href="?controller=index" class="active"><span class="glyphicon glyphicon-apple"></span><span>DashBoard</span></a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-bed"></span><span>Users</span></a>
-                        <ul>
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="?controller=user"><span class="glyphicon glyphicon-bitcoin"></span><span>Categories</span></a>
-                        <ul>
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-camera"></span><span>Products</span></a>
-                        <ul>
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#"><span class="glyphicon glyphicon-calendar"></span><span>About</span></a>
-                        <ul>
-                            <li><a href="#">Add</a></li>
-                            <li><a href="#">Edit</a></li>
-                            <li><a href="#">Delete</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            <div class="nav-menu1-items"></div>
         </div>
         {{--Content-Main--}}
-        <div class="col-xs-6 col-sm-10 content-main" id="dashboard-content"></div>
+        <div class="col-xs-6 col-sm-10 content-main" id="dashboard-content">
+            @yield("pageContent")
+        </div>
     </div>
 </div>
 </body>
