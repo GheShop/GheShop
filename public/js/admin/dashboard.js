@@ -7,7 +7,7 @@ $(document).ready(function () {
         $(".nav-menu1-items").append(response);
         $(".nav-menu1-items ul").first().addClass("nav-menu").attr('id','nav-menu');
         $.each($("#nav-menu").find("a"),function(){
-            if($(this).text() == ''){
+            if($(this).text() === ''){
                 $(this).remove();
             }
         });
@@ -63,18 +63,19 @@ $(document).ready(function () {
         //    set menu active
         var menuActiveInputHidden = $("#tabActiveHidden").text();
         var arraysTab = menuActiveInputHidden.split("_");
-        $.each($("#nav-menu").find("a"),function (index,element) {
-            var classCheck = $(element).attr("class");
-            console.log(classCheck);
-            arraysTab.forEach(function (value) {
-               if(value !== '' && value !== null && classCheck.search(value) !== -1){
-                   console.log(value);
-                   $("#nav-menu").find("a").removeClass("active");
-                   $(element).addClass("active");
-                   $(element).parents("li").find(">a").addClass("active");
-               }
-            });
-        });
+        if(arraysTab[1] !== '' && arraysTab[1] !== null){
+        //    has parent
+            $("#nav-menu").find("a").removeClass("active");
+            var liElement = $("#nav-menu").find("a."+menuActiveInputHidden).parents("li");
+            liElement.find(">a").addClass("active");
+            var ulChild = $(liElement).find(">ul");
+            ulChild.css("display","block");
+        }else{
+        // no parent
+            $("#nav-menu").find("a").removeClass("active");
+            $("#nav-menu").find("a."+arraysTab[0]).addClass("active");
+        }
+
     });
 
     $.ajax({
@@ -107,7 +108,7 @@ $.fn.NavBarPlugin = function () {
                               element.attr("checkActive","1");
                           }
                       });
-                      AnimateLiNextoElement(value,"down");
+                      AnimateLiNextoElement(value,"down",200);
                   }else if(element.attr("checkActive") == '1'){
                       element.rotate(90,{
                           duration:200,
@@ -115,7 +116,7 @@ $.fn.NavBarPlugin = function () {
                               element.attr("checkActive","0");
                           }
                       });
-                      AnimateLiNextoElement(value,"up");
+                      AnimateLiNextoElement(value,"up",200);
                   }
               }
           });
@@ -132,7 +133,7 @@ $.fn.NavBarPlugin = function () {
 
       // animate margin bottom next to li.
 
-      var AnimateLiNextoElement = function (liElement,type) {
+      var AnimateLiNextoElement = function (liElement,type,timeDuration) {
           var ulChild = $(liElement).find(">ul");
           if(ulChild.length > 0){
               var UlHeight = ulChild.height();
@@ -144,13 +145,13 @@ $.fn.NavBarPlugin = function () {
                           nextLiElement.css("margin-top","-"+UlHeight+"px");
                           nextLiElement.animate({
                               "margin-top": "0px"
-                          },200);
+                          },timeDuration);
                       }else if(type === "up"){
                           var tempHeight = $(liElement).siblings(":last").height();
                           $(liElement).siblings(":last").height(tempHeight+UlHeight+"px");
                           nextLiElement.animate({
                               "margin-top": "-"+UlHeight+"px"
-                          },200,function(){
+                          },timeDuration,function(){
                               $(liElement).children("ul").css("display","none")
                               nextLiElement.css("margin-top","0px");
                               $(liElement).siblings(":last").height(tempHeight+"px");
