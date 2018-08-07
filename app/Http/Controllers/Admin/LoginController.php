@@ -2,11 +2,16 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\MessageBag;
+use Illuminate\Support\Str;
 
 class LoginController extends Controller
 {
@@ -40,7 +45,7 @@ class LoginController extends Controller
         $level = 1;
         $remember = $request->input('rememberLogin');
 
-        if (Auth::attempt(['email' => $username, 'password' => $password, 'level' => $level], $remember)) {
+        if (Auth::attempt(['name' => $username, 'password' => $password, 'level' => $level], $remember)) {
             return redirect()->route('admin.dashboard');
         }
         $errors = new MessageBag(["errorLogin" => "Email hoặc mật khẩu không đúng!"]);
@@ -71,6 +76,16 @@ class LoginController extends Controller
                 'message' => $validator->errors()->first()
             ]);
         }else{
+            $mailTo = Input::get('email_reset');
+            $type = 1;
+            $password = Str::random(8)."@596";
+            $data['password'] = $password;
+            try{
+                User::where('email',$mailTo)->update(['password'=>Hash::make($password)]);
+                MailController::send($mailTo,$type,$data);
+            }catch (\Exception $e){
+                 \Log::info("Update Forgot Password or Send Mail Error: ".$e);
+            }
             return json_encode([
                 'statusCode' => 1,
             ]);

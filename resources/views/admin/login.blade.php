@@ -9,6 +9,7 @@
     <title>Login Admin</title>
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.css')}}" type="text/css">
     <link rel="stylesheet" href="{{URL::asset('css/backend/login.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/fontAsomeone.css')}}" type="text/css">
 </head>
 <body>
 <div class="row" id="loginTop">
@@ -75,8 +76,10 @@
                         <div class="error modal_info_1" style="color: red;text-align: center;font-size: 0.8em;margin-top: 2px" ></div>
                         <div class="inform hidden modal_info_2" style="color: green;text-align: center;margin-top: 2px;">Vui lòng truy cập vào gmail của bạn để lấy mật khẩu mới!</div>
                         <hr/>
-                        <button type="button" class="btn btn-primary modal_info_1" id="sendResetPassword" style="margin: 0 auto; display: block; outline: none">Send Email</button>
-                        <button type="button" class="btn btn-primary hidden modal_info_2" id="TryResetPassword" style="margin: 0 auto; display:block;outline: none">Try Again</button>
+                        <button type="button" class="btn btn-primary modal_info_1" id="sendResetPassword" style="margin: 0 auto; display: block; outline: none">
+                            <i class="fa fa-spinner fa-spin" style="margin-right: 0px;opacity: 0;width: 0;height: 0;" id="loader" ></i>Send Email
+                        </button>
+                        <button type="button" class="btn btn-primary hidden modal_info_2 closeModal" data-dismiss="modal" aria-hidden="true" style="margin: 0 auto; display:block;outline: none">Close</button>
                     </form>
                 </div>
             </div><!-- /.modal-content -->
