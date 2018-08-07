@@ -65,8 +65,10 @@ $(document).ready(function () {
         var arraysTab = menuActiveInputHidden.split("_");
         $.each($("#nav-menu").find("a"),function (index,element) {
             var classCheck = $(element).attr("class");
+            console.log(classCheck);
             arraysTab.forEach(function (value) {
                if(value !== '' && value !== null && classCheck.search(value) !== -1){
+                   console.log(value);
                    $("#nav-menu").find("a").removeClass("active");
                    $(element).addClass("active");
                    $(element).parents("li").find(">a").addClass("active");

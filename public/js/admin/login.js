@@ -13,11 +13,18 @@ $(document).ready(function () {
         });
     });
 //  handel modal reset password
+
+    $('#myModal').on('hidden.bs.modal', function (e) {
+        $("#title,#loginMain").css("filter","");
+    });
+
     $("#reset-password-link").on("click",function () {
         $("#title,#loginMain").css("filter","blur(2px)");
     });
-    $(".close").on("click",function () {
+    $(".close,.closeModal").on("click",function () {
         $("#title,#loginMain").css("filter","");
+        $(".modal_info_1").removeClass("hidden");
+        $(".modal_info_2").addClass("hidden");
     });
 
     $("#sendResetPassword").on("click",function (e) {
@@ -31,19 +38,21 @@ $(document).ready(function () {
             type: "POST",
             url: "/admin/password_reset",
             data:{"email_reset":$("#email_reset").val()},
+            beforeSend:function () {
+                $("#loader").css({"opacity":1,"width":"auto","height":"auto","margin-right":"8px"});
+                $("#loader").removeClass("hidden");
+                $("#title,#loginMain").css("filter","blur(2px)");
+            }
         }).done(function (response) {
             var result = jQuery.parseJSON(response);
-            if(result.statusCode == 0){
+            if(result.statusCode === 0){
                 $(".error").text(result.message);
             }else{
                 $(".modal_info_1").addClass("hidden");
                 $(".modal_info_2").removeClass("hidden");
             }
+            $("#loader").css({"opacity":0,"width":0,"height":0,"margin-right":0});
+            $("#title,#loginMain").css("filter","");
         });
-    });
-    $("#TryResetPassword").on("click",function () {
-        $(".modal_info_1").removeClass("hidden");
-        $(".modal_info_2").addClass("hidden");
-        $(".error").text("");
     });
 });

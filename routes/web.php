@@ -45,3 +45,5 @@ Route::middleware('checkAuth')->group(function () {
 
 
 Route::get('admin/logout', 'Admin\LoginController@logout')->name('admin.logout');
+
+Route::get('sendMail','Admin\MailController@send');
