@@ -16,7 +16,7 @@ class CategoriesController extends Controller
         if(count($categories) > 0){
             $this->createCategories($categories,0,$navString);
         }
-        return $navString . "123";
+        return $navString;
     }
 
     public function createCategories($categories, $parent_id = 0, &$string)
