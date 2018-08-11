@@ -78,15 +78,6 @@ $(document).ready(function () {
 
     });
 
-    $.ajax({
-        type: "GET",
-        url : "/admin/user_info"
-    }).done(function (response) {
-        if(typeof response === 'object'){
-            $(".user-info-name , .pull-left-info > span:first").text(response.name);
-        }
-    });
-
 });
 
 //plugin nav

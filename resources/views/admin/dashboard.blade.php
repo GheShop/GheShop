@@ -33,8 +33,8 @@
     </div>
     <div class="edit-user-info">
         <ul>
-            <li><a href=""><span class="glyphicon glyphicon-user"></span>User Info</a></li>
-            <li><a href=""><span class="glyphicon glyphicon-pencil"></span>Change Password</a></li>
+            <li><a href="javascript:void(0)" id="update_user_info"><span class="glyphicon glyphicon-user"></span>User Info</a></li>
+            <li><a href="javascript:void(0)" id="change_password_user"><span class="glyphicon glyphicon-pencil"></span>Change Password</a></li>
             <li><a href="{{route('admin.logout')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
         </ul>
     </div>
@@ -71,6 +71,7 @@
 <script type="text/javascript" src="{{URL::asset('js/jquery.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/admin/dashboard.js')}}"></script>
+<script type="text/javascript" src="{{URL::asset('js/admin/dashboardAjaxCall.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/jquery.easing.min.js')}}"></script>
 <script type="text/javascript" src="{{URL::asset('js/rotate.min.js')}}"></script>
 </html>
