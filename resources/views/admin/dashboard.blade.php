@@ -33,8 +33,8 @@
     </div>
     <div class="edit-user-info">
         <ul>
-            <li><a href="javascript:void(0)" id="update_user_info"><span class="glyphicon glyphicon-user"></span>User Info</a></li>
-            <li><a href="javascript:void(0)" id="change_password_user"><span class="glyphicon glyphicon-pencil"></span>Change Password</a></li>
+            <li><a href="{{route('admin.user.info')}}"><span class="glyphicon glyphicon-user"></span>User Info</a></li>
+            <li><a href="{{route('user.changePassword')}}"><span class="glyphicon glyphicon-pencil"></span>Change Password</a></li>
             <li><a href="{{route('admin.logout')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
         </ul>
     </div>

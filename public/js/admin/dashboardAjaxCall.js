@@ -9,23 +9,4 @@ $(document).ready(function(){
             $(".pull-left-info > span:first").text(response.email);
         }
     });
-    // update user info
-    $("#update_user_info").on("click",function(){
-        $.ajax({
-            type: "GET",
-            url : "/admin/user/info"
-        }).done(function (response) {
-            $("#dashboard-content").html(response);
-        });
-    });
-
-    // $("#change_password_user").on("click",function(){
-    //     $.ajax({
-    //         type: "GET",
-    //         url : "/admin/user/info"
-    //     }).done(function (response) {
-    //         $("#dashboard-content").html(response);
-    //     });
-    // });
-
 });

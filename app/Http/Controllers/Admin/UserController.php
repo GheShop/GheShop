@@ -24,6 +24,6 @@ class UserController extends Controller
 
     public function getUserInfo()
     {
-        return view('admin.user.info',['user'=>Auth::user()->id]);
+        return view('admin.user.info',['user'=>Auth::user()]);
     }
 }
