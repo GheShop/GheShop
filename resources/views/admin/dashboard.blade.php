@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{URL::asset('css/bootstrap.css')}}" type="text/css">
     <link rel="stylesheet" href="{{URL::asset('css/backend/dashboard.css')}}" type="text/css">
     <link rel="stylesheet" href="{{URL::asset('css/fontAsomeone.css')}}" type="text/css">
+    <link rel="stylesheet" href="{{URL::asset('css/backend/changePassword.css')}}" type="text/css">
 </head>
 <body>
 <div class="wrapper">
@@ -34,7 +35,7 @@
     <div class="edit-user-info">
         <ul>
             <li><a href="{{route('admin.user.info')}}"><span class="glyphicon glyphicon-user"></span>User Info</a></li>
-            <li><a href="{{route('user.changePassword')}}"><span class="glyphicon glyphicon-pencil"></span>Change Password</a></li>
+            <li><a href="{{route('user.get.changePassword')}}"><span class="glyphicon glyphicon-pencil"></span>Change Password</a></li>
             <li><a href="{{route('admin.logout')}}"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
         </ul>
     </div>

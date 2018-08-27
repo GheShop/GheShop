@@ -39,7 +39,8 @@ Route::middleware('checkAuth')->group(function () {
 
         Route::prefix("user")->group(function(){
             Route::get('info','Admin\UserController@getUserInfo')->name('admin.user.info');
-            Route::post('changePassword','Admin\UserController@postChangePassword')->name('user.changePassword');
+            Route::get('changePassword','Admin\UserController@getChangePassword')->name('user.get.changePassword');
+            Route::post('changePassword','Admin\UserController@postChangePassword')->name('user.post.changePassword');
         });
         Route::resources([
             'user'=>'Admin\UserController'
